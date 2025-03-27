@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web Saya</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            text-align: center;
+        }
+        header {
+            background: #333;
+            color: white;
+            padding: 15px;
+        }
+        nav ul {
+            list-style: none;
+            padding: 0;
+        }
+        nav ul li {
+            display: inline;
+            margin: 0 15px;
+        }
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+        }
+        section {
+            margin: 20px;
+            padding: 20px;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        button {
+            padding: 10px 20px;
+            border: none;
+            background: #28a745;
+            color: white;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        button:hover {
+            background: #218838;
+        }
+        input, textarea {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Selamat Datang di Web saya</h1>
+        <nav>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">Tentang</a></li>
+                <li><a href="#contact">Kontak</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <section id="home">
+        <h2>Beranda</h2>
+        <p>Ini adalah halaman utama dari website saya.</p>
+        <button onclick="showAlert()">Klik Saya</button>
+    </section>
+    
+    <section id="about">
+        <h2>Tentang Kami</h2>
+        <p>Kami menyediakan layanan terbaik untuk Anda.</p>
+    </section>
+    
+    <section id="contact">
+        <h2>Kontak</h2>
+        <form id="contactForm">
+            <label for="name">Nama:</label>
+            <input type="text" id="name" required>
+            
+            <label for="message">Pesan:</label>
+            <textarea id="message" required></textarea>
+            
+            <button type="submit">Kirim</button>
+        </form>
+        <p id="responseMessage"></p>
+    </section>
+    
+    <script>
+        function showAlert() {
+            alert("Tombol telah diklik!");
+        }
+
+        document.getElementById("contactForm").addEventListener("submit", function(event) {
+            event.preventDefault();
+            let name = document.getElementById("name").value;
+            let message = document.getElementById("message").value;
+            if (name && message) {
+                document.getElementById("responseMessage").textContent = `Terima kasih, ${name}, pesan Anda telah dikirim!`;
+                document.getElementById("contactForm").reset();
+            } else {
+                alert("Harap isi semua bidang formulir.");
+            }
+        });
+    </script>
+</body>
+</html>
